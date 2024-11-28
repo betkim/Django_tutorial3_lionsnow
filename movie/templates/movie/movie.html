@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Movies{% endblock %}
+
+{% block content %}
+<h2>Welcome to the Movie Page</h2>
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Top Movies</h5>
+        <p class="card-text">Discover the most popular movies and reviews!</p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Go Back to Home</a>
+    </div>
+</div>
+{% endblock %}

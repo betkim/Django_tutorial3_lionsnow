@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}News Page{% endblock %}
+
+{% block content %}
+<h2 class="mt-5">Latest News</h2>
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Breaking News</h5>
+        <p class="card-text">
+            Django는 현재 가장 인기 있는 파이썬 웹 프레임워크 중 하나입니다.
+            효율적인 개발과 유지보수를 돕는 다양한 기능을 제공합니다.
+        </p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Go Back to Home</a>
+    </div>
+</div>
+{% endblock %}
