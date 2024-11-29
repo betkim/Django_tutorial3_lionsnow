@@ -12,7 +12,7 @@
                 전체 게시글
             {% endif %}
         </h5>
-        <a href="#" class="btn btn-primary btn-sm">글쓰기</a>
+        <a href="{% url 'blog:post_write' %}" class="btn btn-primary btn-sm">글쓰기</a>
     </div>
     <div class="card-body">
         {% if posts %}

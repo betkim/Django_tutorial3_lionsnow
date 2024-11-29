@@ -15,7 +15,7 @@
                             <h6 class="mb-1">{{ category.name }}</h6>
                             <small>작성일: {{ category.create_at }}</small>
                         </div>
-                        <a href="#" class="small text-decoration-none">
+                        <a href="{% url 'blog:category_post_list' category.id %}" class="small text-decoration-none">
                             게시글 보기 →
                         </a>
                     </div>

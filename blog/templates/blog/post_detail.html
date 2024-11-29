@@ -27,8 +27,8 @@
     <!-- 버튼 그룹 -->
     <div class="d-flex justify-content-center gap-3">
       <a href="{% url 'blog:index' %}" class="btn btn-outline-primary">목록</a>
-      <a href="#" class="btn btn-warning">수정</a>
-      <a href="#" class="btn btn-danger">삭제</a>
+      <a href="{% url 'blog:post_edit' post.id %}" class="btn btn-warning">수정</a>
+      <a href="{% url 'blog:post_delete' post.id %}" class="btn btn-danger">삭제</a>
     </div>
   </div>
 {% endblock %}

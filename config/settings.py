@@ -94,17 +94,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 #.env파일 로드  이걸 빠드리면 안됨!!
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql', 
+#         'NAME': os.getenv('DB_NAME'),  
+#         'USER': os.getenv('DB_USER'),  
+#         'PASSWORD': os.getenv('DB_PASSWORD'),  
+#         'HOST': os.getenv('DB_HOST'),  
+#         'PORT': os.getenv('DB_PORT'),  
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': os.getenv('DB_NAME'),  
-        'USER': os.getenv('DB_USER'),  
-        'PASSWORD': os.getenv('DB_PASSWORD'),  
-        'HOST': os.getenv('DB_HOST'),  
-        'PORT': os.getenv('DB_PORT'),  
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -139,9 +145,10 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+ 
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR/'config/static']
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR/'config/static']  # 파일 경로
 
 
 # Default primary key field type

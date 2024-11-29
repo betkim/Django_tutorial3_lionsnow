@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block content %}
+<h2>{{ movie.title }}</h2>
+<!-- 이미지 파일은 동적으로 로드 -->
+<img src="{% static 'movie/' %}{{ movie.image_name }}" class="img-fluid mb-3" alt="{{ movie.title }}">
+<p><strong>Description:</strong> {{ movie.description }}</p>
+<p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+
+<h3>Comments</h3>
+<ul>
+    {% for comment in comments %}
+    <li><strong>{{ comment.user }}</strong>: {{ comment.content }}</li>
+    {% endfor %}
+</ul>
+
+<!-- 댓글 작성 폼 -->
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="user">Your Name</label>
+        <input type="text" name="user" class="form-control" id="user" required>
+    </div>
+    <div class="mb-3">
+        <label for="content">Your Comment</label>
+        <textarea name="content" class="form-control" id="content" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

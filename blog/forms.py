@@ -22,11 +22,11 @@ class PostForm(forms.ModelForm):
                 'class':'form=control',
                 'placeholder':'카테고리명을 입력하세요' 
             }),
-            'category':forms.Select(attrs={
-                'class':'form-control',
-                'row':10,
-                'placeholder':'내용을 입력하세요'
-            }) ,
+            # 'category':forms.Select(attrs={
+            #     'class':'form-control',
+            #     'row':10,
+            #     'placeholder':'내용을 입력하세요'
+            # }) ,
             'content':forms.TextInput(attrs={
                 'class':'form-control',
                 'rows':10,

@@ -15,9 +15,9 @@ urlpatterns = [
 
     path('', views.index , name='index'),  #전체포스트의 나열, 리스트표시, 카테고리에 상관없이 시간순 내림차순-> 카테고리로 나열화면으로 가는 링크 추가
     path('post/<int:post_id>',views.post_detail, name='post_detail'), #한 포스트에 대한 세부내용(블로그 내용 표시)
-    # path('post/write/', views.post_write, name='post_write'), #포스트 생성
-    # path('post/<int:post_id>/edit/', views.post_edit, name='post_edit'), #포스트 편집 (update)
-    # path('post/<int:post_id>/delete',views.post_delete,name='post_delete'), #포스트 삭제
+    path('post/write/', views.post_write, name='post_write'), #포스트 생성
+    path('post/<int:post_id>/edit/', views.post_edit, name='post_edit'), #어떤 포스트 편집 (update)
+    path('post/<int:post_id>/delete',views.post_delete,name='post_delete'), #어떤 포스트 삭제
     
 
 ]

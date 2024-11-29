@@ -34,6 +34,20 @@
         </div>
     </div>
 </div>
+{% block footer %}
+<footer class="fixed-bottom container text-center">
+    <ul class="nav justify-content-center">
+        {% if category %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'blog:post_write' category.id %}">게시글 등록</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'blog:category_list' %}">카테고리 관리</a>
+        </li>
+      </ul>
+</footer> 
 {% endblock %}
 
+{% endblock %}
 <!-- 상속밑엔느 써도 화면에 안나옴 block 안에 쓴내용만 나옴 -->
