@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application' #파이썬애니웨어에 경로 설정할때
 
 
 # Database
@@ -103,6 +103,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'PASSWORD': os.getenv('DB_PASSWORD'),  
 #         'HOST': os.getenv('DB_HOST'),  
 #         'PORT': os.getenv('DB_PORT'),  
+#     }
+# }
+
+
+# DATABASES = {    'mysql': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'testdb',
+#         'USER': 'mysql',
+#         'PASSWORD': 'mysql123',
+#         'HOST': 'hanslab.org',
+#         'PORT': '53306',
+#         'OPTIONS': {
+#             'charset': 'utf8mb4',
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         }
 #     }
 # }
 
@@ -150,7 +165,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR/'config/static']  # 파일 경로
-STATIC_ROOT = BASE_DIR/'static'
+STATIC_ROOT = BASE_DIR/'static'   #파이썬애니웨어 할때 필요
 
 #미디어 파일 세팅
 MEDIA_URL = '/media/'
