@@ -150,6 +150,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR/'config/static']  # 파일 경로
+STATIC_ROOT = BASE_DIR/'static'
 
 #미디어 파일 세팅
 MEDIA_URL = '/media/'
