@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar', #1
     'movie',
     'blog',
+    'imageapp',
 
 ]
 
@@ -150,8 +151,17 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR/'config/static']  # 파일 경로
 
+#미디어 파일 세팅
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR/'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+LOGIN_REDIRECT_URL ='/' #슬래시가 아무것도 입력안했다 첫페이지로 보내겠단 의미 설정하기 나름.
+LOGOUT_REDIRECT_URL ='/'
+

@@ -19,9 +19,10 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    author = models.ForeignKey('auth.User' , on_delete=models.CASCADE) #편집할때 아무나 못하고 권한있는 아이디만/ 아이디 삭제 글도 삭제//아디삭제해도 글은 남게는 어떻게? author_
     title = models.CharField(max_length=200, verbose_name='제목')
     content = models.TextField(verbose_name='내용')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='카테고리')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='카테고리')  #foreign키 외부 category_id
     create_at = models.DateTimeField(auto_now_add=True, verbose_name='작성일')
 
     def __str__(self) -> str:
@@ -33,6 +34,6 @@ class Post(models.Model):
         db_table = 'lion_blog_post'
         ordering = ['-create_at']
         indexes = [
-            models.Index(fields=['-create_at'])
+            models.Index(fields=['-create_at'])     
         ]
                                 

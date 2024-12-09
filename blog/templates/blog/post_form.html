@@ -11,10 +11,10 @@
                     <form action="" method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
+                        <input type="hidden" name="category" value="{{category.id}}">                      
                         <div class="d-flex justify-content-between mt-3">
                             <button type="submit" class="btn btn-primary">저장</button>
                             <a href="{% url 'blog:category_list' %}" class="btn btn-secondary">취소</a>
-                            <input type="hidden" name="category" value="{{category}}">
                         </div>
                     </form>
                 </div>
@@ -23,3 +23,6 @@
     </div>
 </div>
 {% endblock %}
+
+
+<!-- <input type="hidden" name="category" value="{{category.id}}">   14번 무슨의미? -->

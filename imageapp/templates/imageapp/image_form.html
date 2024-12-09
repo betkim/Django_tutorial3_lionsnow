@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- multipart/for-data써야 request에 실제이미지 데이터가 담김 -->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Save">
+</form>
+{% endblock %}
