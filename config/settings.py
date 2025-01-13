@@ -107,19 +107,7 @@ WSGI_APPLICATION = 'config.wsgi.application' #파이썬애니웨어에 경로 �
 # }
 
 
-# DATABASES = {    'mysql': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'testdb',
-#         'USER': 'mysql',
-#         'PASSWORD': 'mysql123',
-#         'HOST': 'hanslab.org',
-#         'PORT': '53306',
-#         'OPTIONS': {
-#             'charset': 'utf8mb4',
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         }
-#     }
-# }
+
 
 DATABASES = {
     'default': {
