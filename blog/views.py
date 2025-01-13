@@ -4,7 +4,7 @@ from .forms import CategoryForm, PostForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator #무슨 의미? 1~100 중 1~10번까지 /그다음페이지 앞에 열개는 빼고 11~20까지
-
+from django.http import JsonResponse
 
 # Create your views here.
   #로그인 인증된 사람만 편집? -blog 누르면 로그인 화면해야 사용가능
@@ -133,3 +133,26 @@ def search(request):
 
     context = {'searched_posts':page_obj}
     return render(request, 'blog/search.html',context)
+
+def search_autocomplete(request):
+     query = request.GET.get('q', '')
+    #2글자 이상 query가 전달되었을 때검색이 이루어지도록 함
+     if query and len(query) >= 2: #2글자 이상
+        posts = Post.objects.filter(
+             Q(title__icontains=query)
+         ).values_list('title', flat=True).distinct()[:5] #중복제거:distinct 
+         #최대 5개
+
+        return JsonResponse({
+            'status': 'success',
+            'suggestions': list(posts)
+            }
+        )
+     else:
+        return JsonResponse(
+              {
+                  'status':'error',
+                  'suggestions': []
+              }
+        )
+

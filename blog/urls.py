@@ -20,5 +20,6 @@ urlpatterns = [
     path('post/<int:post_id>/delete',views.post_delete,name='post_delete'), #어떤 포스트 삭제
      # Search
     path('search/', views.search, name='search'),
+    path('search/autocomplete/', views.search_autocomplete, name='search_autocomplete'),   #검색어 밑에 자동검색어
 
 ]
