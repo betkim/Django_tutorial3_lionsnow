@@ -152,7 +152,7 @@ USE_TZ = False
  
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR/'config/static']  # 파일 경로
+# STATICFILES_DIRS = [BASE_DIR/'config/static']  # 파일 경로
 STATIC_ROOT = BASE_DIR/'static'   #파이썬애니웨어 할때 필요
 
 #미디어 파일 세팅
