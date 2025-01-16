@@ -152,17 +152,22 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
- 
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR/'config/static']  # 파일 경로
-STATIC_ROOT = BASE_DIR/'static'   #파이썬애니웨어 할때 필요
+# STATIC_URL = 'static/'
+# STATIC_ROOT= BASE_DIR/'static'
+STATICFILES_DIRS = [BASE_DIR/'config/static'] #lion 이미지가 static으로 복사되도록 변경
 
-# STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+# # media 파일 관련 세팅
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR/'media'
 AWS_STORAGE_BUCKET_NAME= os.getenv("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_REGION_NAME=os.getenv("AWS_S3_REGION_NAME")
 AWS_S3_CUSTOM_DOMAIN=f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+MEDIA_ROOT=BASE_DIR/'media'
+# STATIC_URL = '/static/'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+# MEDIA_URL = '/media/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 AWS_STATIC_LOCATION='static'
 AWS_MEDIA_LOCATION='media'
 AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
@@ -189,9 +194,83 @@ STORAGES = {
     },
 }
 
-#미디어 파일 세팅
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+ 
+
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [BASE_DIR/'config/static']  # 파일 경로
+# STATIC_ROOT = BASE_DIR/'static'   #파이썬애니웨어 할때 필요
+
+# # STATIC_URL = '/static/'
 # MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR/'media'
+# AWS_STORAGE_BUCKET_NAME= os.getenv("AWS_STORAGE_BUCKET_NAME")
+# AWS_S3_REGION_NAME=os.getenv("AWS_S3_REGION_NAME")
+# AWS_S3_CUSTOM_DOMAIN=f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+# AWS_STATIC_LOCATION='static'
+# AWS_MEDIA_LOCATION='media'
+# AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
+# AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "config.storage_backends.MediaStorage",
+#         "OPTIONS": {
+#             "bucket_name": AWS_STORAGE_BUCKET_NAME,
+#             "location": AWS_MEDIA_LOCATION,
+#             "region_name": AWS_S3_REGION_NAME,
+#             "custom_domain": AWS_S3_CUSTOM_DOMAIN,
+#             "file_overwrite": False,
+#         },
+#     },
+#     "staticfiles": {
+#         "BACKEND": "config.storage_backends.StaticStorage",
+#         "OPTIONS": {
+#             "bucket_name": AWS_STORAGE_BUCKET_NAME,
+#             "location": AWS_STATIC_LOCATION,
+#             "region_name": AWS_S3_REGION_NAME,
+#             "custom_domain": AWS_S3_CUSTOM_DOMAIN
+#         },
+#     },
+# }
+
+# #미디어 파일 세팅
+# # MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR/'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
